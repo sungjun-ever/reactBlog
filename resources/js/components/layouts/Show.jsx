@@ -5,7 +5,12 @@ import Page404 from "../error/Page404";
 export default function Show(){
     let param = useParams();
     let [post, setPost] = useState([]);
-    let [isValid, setIsValid] = useState(true);
+    let [isValid, setIsValid] = useState('all');
+
+    if (param.id === undefined) {
+        param.id = '';
+    }
+
     useEffect(()=>{
         axios({
             method: 'GET',
@@ -18,8 +23,13 @@ export default function Show(){
         })
             .then(response => {
                 if(response.data.post === null){
-                    setIsValid(false);
+                    setIsValid('notFound');
                 } else {
+                    if(response.data.all === 0){
+                        setIsValid('show');
+                    } else {
+                        setIsValid('all');
+                    }
                     setPost(response.data.post);
                 }
             })
@@ -27,23 +37,27 @@ export default function Show(){
 
     return (
         <div>
-        {
-            isValid === true
-            ?
-                <div className={"h-screen flex"}>
-                    <div className={"w-1/6 border border-white"}>1</div>
-                    <div className={"w-4/6 border border-green-300 py-16 px-32"}>
-                        <div id={"title"} className={"font-bold text-3xl"}>{post.title}</div>
-                        <div id={"story"}
-                             className={"py-8"}>
-                            {post.story}
-                        </div>
-                    </div>
-                    <div className={"w-1/6 border border-red-400"}>1</div>
-                </div>
-            :
-                <Page404/>
-        }
+            {
+                {
+                    all:
+                        <div className={"h-screen flex"}>
+                            GET ALL
+                        </div>,
+                    show :
+                        <div className={"h-screen flex"}>}
+                            <div className={"w-1/6 border border-white"}>1</div>
+                                    <div className={"w-4/6 border border-green-300 py-16 px-32"}><div id={"title"} className={"font-bold text-3xl"}>{post.title}</div>
+                                        <div id={"story"}
+                                             className={"py-8"}>
+                                            {post.story}
+                                        </div>
+                                    </div>
+                            <div className={"w-1/6 border border-red-400"}>1</div>
+                        </div>,
+
+                    notFound : <Page404/>
+                }[isValid]
+            }
         </div>
 
     )

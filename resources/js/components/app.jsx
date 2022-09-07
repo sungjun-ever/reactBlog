@@ -21,7 +21,6 @@ export default function App() {
                 <Route path={"/show/:id"} element={<Show />} />
                 <Route path={"/show/*"} element={<Page404 />} />
 
-
                 <Route path={"/admin"} element={<Index />} />
                 <Route path={"/admin/create"} element={<Create />} />
             </Routes>

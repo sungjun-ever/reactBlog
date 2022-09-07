@@ -19,6 +19,7 @@ Route::prefix('/admin')->group(function(){
 });
 
 Route::prefix('/')->group(function(){
+    Route::get('show', [PostController::class, 'index']);
     Route::get('show/{id}', [PostController::class, 'show']);
 });
 

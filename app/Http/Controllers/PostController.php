@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function index(){
+        $data = Post::all();
+
+        return response()->json(['post' => $data, 'all' => 1], 200);
+    }
+
     public function show($id){
         $data = Post::find($id);
         if($data === null){
             return response()->json(['post' => null], 200);
         }
-        return response()->json(['post' => $data], 200);
+        return response()->json(['post' => $data, 'all' => 0], 200);
     }
 
     public function store(Request $request){
