@@ -9,33 +9,27 @@ export default function ShowIndex(){
     const [total, setTotal] = useState(0);
     const offset = (page - 1) * limit;
 
-    async function getPosts(){
-        await axios({
-                method: 'GET',
-                url: '/api/show',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').attributes[1].value,
-                }
+    useEffect( ()=>{
+        axios({
+            method: 'GET',
+            url: '/api/show',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').attributes[1].value,
+            }
         })
             .then(response => {
                 setPosts(response.data.post);
-                console.log(posts);
                 setTotal(posts.length);
             })
-
-    }
-
-    useEffect(()=>{
-        getPosts();
     }, [])
 
     return (
         <>
             <div className={"h-screen flex"}>
                 <div className={"w-1/6"}>1</div>
-                <div className={"w-4/6"}>
+                <div className={"w-4/6 py-16"}>
                 {
                     posts.slice(offset, offset + limit).map((post)=>
                         <div className={"flex border border-black justify-between px-4 h-16 items-center"} key={post.id}>

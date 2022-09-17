@@ -36,5 +36,5 @@ const app = createRoot(rootElement);
 app.render(
     <BrowserRouter>
         <App />
-    </BrowserRouter>,
+    </BrowserRouter>
 )
