@@ -2,29 +2,34 @@ import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import Pagination from "./Pageination";
 
-
 export default function ShowIndex(){
     const [posts, setPosts] = useState([]);
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(10);
-    const offset = (page - 1) * limit;
     const [total, setTotal] = useState(0);
-    useEffect(()=>{
-        axios({
-            method: 'GET',
-            url: '/api/show',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').attributes[1].value,
-            }
+    const offset = (page - 1) * limit;
+
+    async function getPosts(){
+        await axios({
+                method: 'GET',
+                url: '/api/show',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').attributes[1].value,
+                }
         })
             .then(response => {
                 setPosts(response.data.post);
-                console.log(posts.length);
+                console.log(posts);
                 setTotal(posts.length);
             })
-    }, []);
+
+    }
+
+    useEffect(()=>{
+        getPosts();
+    }, [])
 
     return (
         <>
@@ -51,3 +56,4 @@ export default function ShowIndex(){
         </>
     )
 }
+
