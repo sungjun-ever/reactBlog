@@ -30,6 +30,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 16px;
   gap: 4px;
   margin: 16px;
 `;
@@ -45,7 +46,7 @@ const Button = styled.button`
   font-size: 1rem;
 
   &:hover {
-    background: tomato;
+    background: #7f8c8d;
     cursor: pointer;
     transform: translateY(-2px);
   }
@@ -57,7 +58,7 @@ const Button = styled.button`
   }
 
   &[aria-current] {
-    background: deeppink;
+    background: #3498db;
     font-weight: bold;
     cursor: revert;
     transform: revert;
