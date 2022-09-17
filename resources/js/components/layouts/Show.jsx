@@ -25,11 +25,7 @@ export default function Show(){
                 if(response.data.post === null){
                     setIsValid('notFound');
                 } else {
-                    if(response.data.all === 0){
-                        setIsValid('show');
-                    } else {
-                        setIsValid('all');
-                    }
+                    setIsValid('show');
                     setPost(response.data.post);
                 }
             })
@@ -39,19 +35,14 @@ export default function Show(){
         <div>
             {
                 {
-                    all:
-                        <div className={"h-screen flex"}>
-                            GET ALL
-                        </div>,
                     show :
                         <div className={"h-screen flex"}>}
                             <div className={"w-1/6 border border-white"}>1</div>
-                                    <div className={"w-4/6 border border-green-300 py-16 px-32"}><div id={"title"} className={"font-bold text-3xl"}>{post.title}</div>
-                                        <div id={"story"}
-                                             className={"py-8"}>
-                                            {post.story}
-                                        </div>
-                                    </div>
+                            <div className={"w-4/6 border border-green-300 py-16 px-32"}><div id={"title"} className={"font-bold text-3xl"}>{post.title}</div>
+                                <div id={"story"} className={"py-8"}>
+                                    {post.story}
+                                </div>
+                            </div>
                             <div className={"w-1/6 border border-red-400"}>1</div>
                         </div>,
 

@@ -10,6 +10,7 @@ import Footer from "./layouts/Footer";
 import Index from "./admin/Index";
 import Show from "./layouts/Show";
 import Page404 from "./error/Page404";
+import ShowIndex from "./layouts/ShowIndex";
 
 export default function App() {
     return (
@@ -17,7 +18,7 @@ export default function App() {
             <Header/>
             <Routes>
                 <Route path="/" element={<Home />}/>
-                <Route path={"/show"} element={<Show />} />
+                <Route path={"/show"} element={<ShowIndex />} />
                 <Route path={"/show/:id"} element={<Show />} />
                 <Route path={"/show/*"} element={<Page404 />} />
 
