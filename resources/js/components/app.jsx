@@ -18,6 +18,7 @@ export default function App() {
             <Header/>
             <Routes>
                 <Route path="/" element={<Home />}/>
+                <Route path={"/*"} element={<Page404 />} />
                 <Route path={"/show"} element={<ShowIndex />} />
                 <Route path={"/show/:id"} element={<Show />} />
                 <Route path={"/show/*"} element={<Page404 />} />
