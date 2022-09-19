@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        $data = Post::all();
+        if(isset(\request()->limit)){
+            $data = Post::all()->slice(0, 9);
+        } else {
+            $data = Post::all();
+        }
 
-        return response()->json(['post' => $data], 200);
+        return response()->json(['post' => $data, 'request' => \request()->count], 200);
     }
 
     public function show($id){
