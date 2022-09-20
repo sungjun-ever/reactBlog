@@ -33,7 +33,7 @@ export default function Show(){
             {
                 {
                     show :
-                        <div className={"h-screen flex justify-end"}>
+                        <div className={"min-h-screen flex justify-end"}>
                             <div className={"w-4/6 border-x-2 py-16 px-32"}><div id={"title"} className={"font-bold text-3xl"}>{post.title}</div>
                                 <div id={"story"} className={"py-8"}>
                                     {post.story}

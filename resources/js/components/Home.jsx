@@ -21,7 +21,7 @@ export default function Home(){
     }, [])
 
     return (
-        <div className={"w-2/3 mx-auto py-16"}>
+        <div className={"w-2/3 min-h-screen mx-auto py-16"}>
             <div className={"grid grid-cols-3 gap-x-4 gap-y-8"}>
                 {
                     posts.map((post)=>
