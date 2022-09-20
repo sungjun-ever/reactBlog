@@ -6,10 +6,7 @@ export default function Show(){
     let param = useParams();
     let [post, setPost] = useState([]);
     let [isValid, setIsValid] = useState('all');
-
-    if (param.id === undefined) {
-        param.id = '';
-    }
+    let [anchor, setAnchor] = useState('');
 
     useEffect(()=>{
         axios({
