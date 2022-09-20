@@ -27,7 +27,7 @@ export default function Header(){
                                name={'search'}
                                className={"border-2 border-white rounded-md p-1 w-1/2 transition-all"}
                                style={{backgroundColor:'#2d3436'}}
-                               placeholder={'Search..'}
+                               placeholder={'검색..'}
                                autoComplete={'off'}
                                onFocus={longSearchBox}
                                onBlur={shortSearchBox}
