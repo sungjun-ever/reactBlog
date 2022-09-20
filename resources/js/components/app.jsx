@@ -29,6 +29,7 @@ export default function App() {
                 <Route path={"/show/*"} element={<Page404 />} />
 
                 <Route path={"/admin"} element={<Index />} />
+                <Route path={"/admin/*"} element={<Page404 />} />
                 <Route path={"/admin/create"} element={<Create />} />
             </Routes>
             <Footer/>
