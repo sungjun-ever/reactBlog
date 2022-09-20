@@ -11,6 +11,7 @@ import Index from "./admin/Index";
 import Show from "./layouts/Show";
 import Page404 from "./error/Page404";
 import ShowIndex from "./layouts/ShowIndex";
+import Search from "./layouts/Search";
 
 export default function App() {
     return (
@@ -19,6 +20,10 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path={"/*"} element={<Page404 />} />
+
+                <Route path={"/search"} element={<Search />}/>
+                <Route path={"/search/*"} element={<Page404 />}/>
+
                 <Route path={"/show"} element={<ShowIndex />} />
                 <Route path={"/show/:id"} element={<Show />} />
                 <Route path={"/show/*"} element={<Page404 />} />
