@@ -20,7 +20,7 @@ export default function Show(){
         })
             .then(response => {
                 if(response.data.post === null){
-                    setIsValid('notFound');
+                    setIsValid('404');
                 } else {
                     setIsValid('show');
                     setPost(response.data.post);
@@ -44,7 +44,7 @@ export default function Show(){
                             </div>
                         </div>,
 
-                    notFound : <Page404/>
+                    404 : <Page404/>
                 }[isValid]
             }
         </div>
