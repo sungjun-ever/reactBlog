@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,11 +16,11 @@ use App\Http\Controllers\PostController;
 */
 
 Route::prefix('/admin')->group(function(){
-    Route::get('/store', [PostController::class, 'store']);
+    Route::post('/store', [PostController::class, 'store']);
 });
 
 Route::prefix('/')->group(function(){
-    Route::post('search', [PostController::class, 'search']);
+    Route::get('search', [SearchController::class, 'search']);
     Route::get('show', [PostController::class, 'index']);
     Route::get('show/{id}', [PostController::class, 'show']);
 });
