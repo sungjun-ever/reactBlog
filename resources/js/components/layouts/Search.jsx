@@ -49,10 +49,12 @@ export default function Search(props){
                                     </Link>
                                 </div>
                             ),
+
                     no:
                         <div className={"flex text-2xl min-h-screen max-h-fit items-start justify-center"}>
                             <div>검색 결과를 찾을 수 없습니다.</div>
                         </div>,
+
                     search:
                         <div className={"flex text-2xl min-h-screen max-h-fit items-start justify-center"}>
                             <div>검색어를 입력해주세요.</div>
