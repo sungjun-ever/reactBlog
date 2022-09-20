@@ -1,6 +1,4 @@
 import {Link} from "react-router-dom";
-import {useState} from "react";
-import Search from "./Search";
 
 export default function Header(){
     function longSearchBox(e){
@@ -14,6 +12,7 @@ export default function Header(){
     }
 
     function search(e){
+        e.preventDefault();
         const p = document.getElementById('search').value;
         window.location.href=`/search?param=`+p;
     }
@@ -23,13 +22,13 @@ export default function Header(){
             <div className={"flex flex-auto justify-evenly h-16 items-center w-2/3 mx-auto"}>
                 <div className={"flex w-1/2 gap-x-12"}>
                     <div>
-                        <button className={"text-3xl"}><i className={"xi-bars"}></i></button>
+                        <button  className={"text-3xl"}><i className={"xi-bars"}></i></button>
                     </div>
                     <Link to={"/"} className={"text-2xl"}>LOGO</Link>
                 </div>
 
                 <div className={"flex w-1/2"}>
-                    <form action="" method={'GET'} className={"flex w-full align-middle justify-end"}>
+                    <form method={'GET'} className={"flex w-full align-middle justify-end"}>
                         <input id={"search"}
                                type={'text'}
                                name={'search'}
@@ -40,7 +39,7 @@ export default function Header(){
                                onFocus={longSearchBox}
                                onBlur={shortSearchBox}
                         />
-                        <button type={"button"} className={"text-2xl pl-4"} onClick={search}>
+                        <button type={"submit"} className={"text-2xl pl-4"} onClick={search}>
                             <i className={"xi-search"}></i>
                         </button>
                     </form>
