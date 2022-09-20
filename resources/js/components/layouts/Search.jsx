@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 export default function Search(props){
     const [posts, setPost] = useState([]);
-    const [isValid, setIsValid] = useState('search');
+    const [isValid, setIsValid] = useState('');
 
     const search = window.location.search;
     const query = queryString.parse(search);
@@ -30,6 +30,8 @@ export default function Search(props){
                     }
                 })
         }, [])
+    } else {
+        setIsValid('search');
     }
 
     return (
