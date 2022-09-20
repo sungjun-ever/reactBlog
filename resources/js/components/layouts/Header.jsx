@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom";
+import {useState} from "react";
+import Search from "./Search";
 
 export default function Header(){
     function longSearchBox(e){
@@ -9,6 +11,11 @@ export default function Header(){
     function shortSearchBox(e){
         e.target.classList.remove('w-full');
         e.target.classList.add('w-1/2');
+    }
+
+    function search(e){
+        const p = document.getElementById('search').value;
+        window.location.href=`/search?param=`+p;
     }
 
     return (
@@ -23,7 +30,8 @@ export default function Header(){
 
                 <div className={"flex w-1/2"}>
                     <form action="" method={'GET'} className={"flex w-full align-middle justify-end"}>
-                        <input type={'text'}
+                        <input id={"search"}
+                               type={'text'}
                                name={'search'}
                                className={"border-2 border-white rounded-md p-1 w-1/2 transition-all"}
                                style={{backgroundColor:'#2d3436'}}
@@ -32,7 +40,7 @@ export default function Header(){
                                onFocus={longSearchBox}
                                onBlur={shortSearchBox}
                         />
-                        <button type={"submit"} className={"text-2xl pl-4"}>
+                        <button type={"button"} className={"text-2xl pl-4"} onClick={search}>
                             <i className={"xi-search"}></i>
                         </button>
                     </form>

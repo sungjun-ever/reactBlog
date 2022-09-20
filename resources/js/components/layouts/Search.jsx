@@ -1,20 +1,20 @@
 import {useEffect, useState} from "react";
 import Page404 from "../error/Page404";
+import queryString from 'query-string';
 
-export default function Search(){
-    let [param, setParam] = useState('');
-    let [posts, setPost] = useState([]);
-    let [isValid, setIsValid] = useState('error');
+export default function Search(props){
+    const [posts, setPost] = useState([]);
+    const [isValid, setIsValid] = useState('search');
 
-    // if(!props) setParam(props.param);
+    const search = window.location.search;
+    const query = queryString.parse(search);
 
-
-    // if (param !== ''){
+    if (search !== ''){
         useEffect(()=>{
             axios({
                 method: 'GET',
                 url: '/api/search',
-                params:{param: 'response'},
+                params:query,
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -22,22 +22,32 @@ export default function Search(){
                 }
             })
                 .then((res) => {
-                    setPost(res.data.post);
-                    setIsValid('show');
+                    if (res.data.post.length !== 0){
+                        setPost(res.data.post);
+                        setIsValid('show');
+                    } else {
+                        setIsValid('no');
+                    }
                 })
         }, [])
-    // }
+    }
 
     return (
-        <div className={"w-2/3 mx-auto min-h-screen"}>
+        <div className={"w-2/3 mx-auto min-h-screen max-h-fit text-center"}>
             {
                 {
                     show:
                         posts.map(post=>
                             <div>{post.title}</div>
                         ),
-
-                    error: <Page404/>
+                    no:
+                        <div>
+                            검색 결과를 찾을 수 없습니다.
+                        </div>,
+                    search:
+                        <div>
+                            검색
+                        </div>
                 }[isValid]
             }
 
