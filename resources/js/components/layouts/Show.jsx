@@ -36,14 +36,15 @@ export default function Show(){
             {
                 {
                     show :
-                        <div className={"h-screen flex"}>}
-                            <div className={"w-1/6 border border-white"}>1</div>
-                            <div className={"w-4/6 border border-green-300 py-16 px-32"}><div id={"title"} className={"font-bold text-3xl"}>{post.title}</div>
+                        <div className={"h-screen flex justify-end"}>
+                            <div className={"w-4/6 border-x-2 py-16 px-32"}><div id={"title"} className={"font-bold text-3xl"}>{post.title}</div>
                                 <div id={"story"} className={"py-8"}>
                                     {post.story}
                                 </div>
                             </div>
-                            <div className={"w-1/6 border border-red-400"}>1</div>
+                            <div className={"w-1/6"}>
+
+                            </div>
                         </div>,
 
                     notFound : <Page404/>
