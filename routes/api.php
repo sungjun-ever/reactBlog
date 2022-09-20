@@ -15,10 +15,11 @@ use App\Http\Controllers\PostController;
 */
 
 Route::prefix('/admin')->group(function(){
-    Route::post('/store', [PostController::class, 'store']);
+    Route::get('/store', [PostController::class, 'store']);
 });
 
 Route::prefix('/')->group(function(){
+    Route::post('search', [PostController::class, 'search']);
     Route::get('show', [PostController::class, 'index']);
     Route::get('show/{id}', [PostController::class, 'show']);
 });

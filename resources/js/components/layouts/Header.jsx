@@ -32,7 +32,9 @@ export default function Header(){
                                onFocus={longSearchBox}
                                onBlur={shortSearchBox}
                         />
-                        <button type={"submit"} className={"text-2xl pl-4"}><i className={"xi-search"}></i></button>
+                        <button type={"submit"} className={"text-2xl pl-4"}>
+                            <i className={"xi-search"}></i>
+                        </button>
                     </form>
                 </div>
             </div>
