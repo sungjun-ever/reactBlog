@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(){
         if(isset(\request()->limit)){
-            $data = Post::all()->slice(0, 9);
+            $data = Post::all()->slice(0, \request()->limit);
         } else {
             $data = Post::all();
         }

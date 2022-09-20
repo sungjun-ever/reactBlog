@@ -1,5 +1,5 @@
-
 import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 
 export default function Home(){
     const [posts, setPosts] = useState([]);
@@ -27,14 +27,13 @@ export default function Home(){
                     posts.map((post)=>
                         <div className={"w-full h-60 border"} key={post.id}>
                             {
-                                post.url === false
+                                post.url
                                     ? <p className={"w-full h-48 border border-red-400"}>IMG</p>
                                     : <p className={"w-full h-48 border border-red-400"}>
-                                        <img src={"../asset/noImage.jpg"} className={"w-full h-48"}/>
+                                        <img src={"../asset/noImage.jpg"} className={"w-full h-48"} loading={"lazy"}/>
                                     </p>
                             }
-
-                            <p className={"w-full p-2 h-12 border border-blue-500"}>{post.title}</p>
+                            <Link to={"/show/"+post.id}><p className={"w-full p-2 h-12 border border-blue-500"}>{post.title}</p></Link>
                         </div>
                     )
                 }

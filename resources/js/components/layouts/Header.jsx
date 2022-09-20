@@ -15,8 +15,8 @@ export default function Header(){
         <div className={"border-b-2 border-b-zinc-500"}>
             <div className={"flex flex-auto  justify-evenly h-16 items-center w-2/3 mx-auto"}>
                 <div className={"w-1/3"}><Link to={"/"}>LOGO</Link></div>
-                <div className={"flex w-1/3 text-left"}>
-                    <form action="" method={'GET'} className={"flex w-full align-middle"}>
+                <div className={"flex w-1/3"}>
+                    <form action="" method={'GET'} className={"flex w-full align-middle justify-end"}>
                         <input type={'text'}
                                name={'search'}
                                className={"border-2 border-white rounded-md p-1 w-1/2 transition-all"}
