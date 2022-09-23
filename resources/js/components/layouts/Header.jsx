@@ -22,7 +22,6 @@ export default function Header(){
         sideMenu.style.display = 'flex';
         sideMenu.classList.remove('w-0');
         sideMenu.classList.add('w-full');
-        console.log(sideMenu.classList);
     }
 
     function closeSideMenu(){
@@ -30,7 +29,6 @@ export default function Header(){
         sideMenu.style.display = 'none';
         sideMenu.classList.remove('w-full');
         sideMenu.classList.add('w-0');
-        console.log(sideMenu.classList);
     }
 
     return (
